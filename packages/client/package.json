@@ -12,19 +12,28 @@
     "url": "https://github.com/walinejs/waline"
   },
   "license": "MIT",
-  "main": "dist/Waline.min.js",
-  "browser": "dist/Waline.min.js",
-  "types": "dist/Waline.min.d.ts",
+  "exports": {
+    ".": {
+      "default": "./dist/Waline.min.js",
+      "require": "./dist/Waline.cjs.js",
+      "import": "./dist/Waline.esm.js"
+    },
+    "./dist": "./dist/waline.min.js",
+    "./dist/waline.css": "./dist/waline.css",
+    "./dist/*": "./dist/*.js",
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/waline.min.js",
+  "browser": "./dist/waline.min.js",
+  "types": "./dist/waline.min.d.ts",
   "scripts": {
-    "analyze": "cross-env ANALYZE=true webpack --mode=production --config ./build/webpack.config.js",
-    "build": "npm run build:normal && npm run build:no-style && npm run build:dts",
-    "build:dts": "rollup -c ./build/rollup.config.js",
-    "build:no-style": "webpack --mode=production --config ./build/webpack.noStyle.js",
-    "build:normal": "webpack --mode=production --config ./build/webpack.config.js",
+    "build": "npm run rollup && npm run style",
     "clean": "rimraf ./dist",
-    "dev": "webpack serve --mode=development --config ./build/webpack.config.js",
+    "dev": "webpack serve --mode=development --config ./scripts/webpack.config.js",
     "lint": "eslint --ext .ts,.vue .",
-    "prepublish": "npm run build"
+    "prepublish": "npm run build",
+    "rollup": "rollup -c ./scripts/rollup.config.js",
+    "style": "sass ./src/styles/index.scss ./dist/waline.css --style=compressed"
   },
   "browserslist": {
     "production": [
@@ -49,5 +58,8 @@
     "marked": "4.0.12",
     "mitt": "3.0.0",
     "vue": "3.2.31"
+  },
+  "engines": {
+    "node": ">=12.20.0"
   }
 }

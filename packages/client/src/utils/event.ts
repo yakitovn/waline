@@ -1,7 +1,9 @@
 import mitt, { Emitter } from 'mitt';
 
-export type WalineEvent = {
+export type WalineEvents = {
   render: AbortSignal;
 };
 
-export const getEvent = (): Emitter<WalineEvent> => mitt<WalineEvent>();
+export type WalineEvent = Emitter<WalineEvents>;
+
+export const getEvent = (): WalineEvent => mitt<WalineEvents>();

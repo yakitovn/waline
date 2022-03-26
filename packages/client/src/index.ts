@@ -19,8 +19,6 @@ export type { Update as WalineUpdate } from './composables';
 export type { Locale as WalineLocale, WalineOptions } from './config';
 export type { Comment as WalineComment } from './typings';
 
-import '@style';
-
 declare const VERSION: string;
 
 class Controller {
@@ -70,7 +68,9 @@ export interface WalineInstance {
   destroy: () => void;
 }
 
-function waline(options: WalineOptions): WalineInstance | WalineErrorInstance {
+export const waline = (
+  options: WalineOptions
+): WalineInstance | WalineErrorInstance => {
   const { el, serverURL } = options;
 
   // check serverURL
@@ -134,12 +134,12 @@ function waline(options: WalineOptions): WalineInstance | WalineErrorInstance {
       if (el) app.unmount();
     },
   };
-}
+};
 
-waline.Widget = {
+export const widgets = {
   RecentComments,
 };
 
-waline.version = VERSION;
+export const version = VERSION;
 
 export default waline;

@@ -111,20 +111,6 @@ export default defineComponent({
       return link ? (isLinkHttp(link) ? link : `https://${link}`) : '';
     });
 
-    const avatar = computed(() => {
-      const userData = props.comment;
-      const avatarConfig = config.value.avatar;
-
-      if (!userData || avatarConfig.hide) {
-        return false;
-      }
-
-      return (
-        props.comment.avatar ||
-        `${avatarConfig.cdn}${props.comment.mail}${avatarConfig.param}`
-      );
-    });
-
     const isReplyingCurrent = computed(
       () => props.comment.objectId === props.reply?.objectId
     );

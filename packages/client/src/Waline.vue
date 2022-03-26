@@ -32,7 +32,7 @@
 
     <div v-else-if="!data.length" class="wl-empty" v-text="locale.sofa" />
 
-    <div v-if="page < totalPages && !loading" class="wl-action">
+    <div v-if="page < totalPages && !loading" class="wl-more">
       <button
         type="button"
         class="wl-btn"
