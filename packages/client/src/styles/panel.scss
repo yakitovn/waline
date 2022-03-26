@@ -13,6 +13,7 @@
 
   padding: 0;
   border: none;
+
   background: transparent;
 
   line-height: 1;
@@ -33,6 +34,7 @@
 
   padding: 3px;
   border: none;
+
   background: transparent;
 
   line-height: 0;
@@ -46,7 +48,6 @@
   width: var(--wl-avatar-size);
   height: var(--wl-avatar-size);
   margin: 0 auto;
-
   border: var(--wl-border);
   border-radius: var(--wl-avatar-radius);
 
@@ -71,9 +72,10 @@
 
 .wl-panel {
   position: relative;
-  width: 100%;
+
   flex-shrink: 1;
 
+  width: 100%;
   margin: 0.5em;
   border: var(--wl-border);
   border-radius: 0.75em;
@@ -84,11 +86,13 @@
 
 .wl-header {
   display: flex;
+
+  overflow: hidden;
+
   padding: 0 4px;
   border-bottom: 2px dashed var(--wl-border-color);
   border-top-left-radius: 0.75em;
   border-top-right-radius: 0.75em;
-  overflow: hidden;
 
   @media (max-width: 580px) {
     display: block;
@@ -190,10 +194,11 @@
   }
 
   .wl-content {
-    padding: 0.25em;
     min-height: 1.25em;
+    padding: 0.25em;
     border: var(--wl-border);
     border-radius: 0.25em;
+
     word-break: break-word;
     hyphens: auto;
 
@@ -221,24 +226,22 @@
 }
 
 .wl-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
   width: 1.5em;
   height: 1.5em;
-  border: none;
-
   margin: 2px;
   padding: 0;
+  border: none;
 
   background: transparent;
+  color: var(--wl-color);
 
   font-size: 16px;
 
   cursor: pointer;
-
-  color: var(--wl-color);
-
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
 
   &:hover {
     color: var(--wl-theme-color);

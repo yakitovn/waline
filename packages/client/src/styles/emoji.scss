@@ -11,27 +11,30 @@
 
     background: var(--wl-bgcolor);
     box-shadow: var(--wl-box-shadow);
-    visibility: hidden;
+
     opacity: 0;
+    visibility: hidden;
+
+    transition: transform 0.2s ease-out, opacity 0.2s ease-out;
     transform: scale(0.9, 0.9);
     transform-origin: 0 0;
-    transition: transform 0.2s ease-out, opacity 0.2s ease-out;
 
     &.display {
-      visibility: visible;
       opacity: 1;
+      visibility: visible;
       transform: none;
     }
 
     button {
       display: inline-block;
       vertical-align: middle;
-      background: transparent;
 
       width: 2em;
       margin: 0.125em;
       padding: 0;
       border-width: 0;
+
+      background: transparent;
 
       font-size: inherit;
       line-height: 2;
@@ -52,8 +55,8 @@
     }
 
     .wl-tab-wrapper {
-      max-height: 145px;
       overflow-y: auto;
+      max-height: 145px;
       padding: 0.5em;
 
       &::-webkit-scrollbar {
@@ -64,7 +67,7 @@
       &::-webkit-scrollbar-track-piece:vertical {
         -webkit-border-radius: 6px;
         border-radius: 6px;
-        background: rgba(0, 0, 0, 0.1);
+        background: rgb(0 0 0 / 10%);
       }
 
       &::-webkit-scrollbar-thumb:vertical {
@@ -82,12 +85,15 @@
 
       &::before {
         content: ' ';
+
         position: absolute;
-        z-index: 2;
-        left: 0;
         top: 0;
         right: 0;
+        left: 0;
+        z-index: 2;
+
         height: 1px;
+
         background: var(--wl-border-color);
       }
     }
@@ -99,11 +105,13 @@
 
       &.active {
         z-index: 3;
-        background: var(--wl-bgcolor);
+
         border: 1px solid var(--wl-border-color);
         border-top-width: 0;
-        border-bottom-left-radius: 6px;
         border-bottom-right-radius: 6px;
+        border-bottom-left-radius: 6px;
+
+        background: var(--wl-bgcolor);
       }
     }
   }
